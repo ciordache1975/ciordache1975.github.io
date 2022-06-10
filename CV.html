@@ -1,0 +1,352 @@
+<html>
+<head>
+<style>
+@page {
+	size : A4;
+	width : 21cm;
+	height : 29.7cm;
+	margin : 1cm;
+	/*padding : 1cm;*/
+}
+@media print {
+	body {
+		box-shadow : none;
+	}
+}
+html { background-color: lightgrey; }
+body { background-color: white; }
+.pbb {
+	page-break-before : always;
+}
+.pbb:before {
+	display : block;
+	position : relative;
+	left : -1cm;
+	width : 23cm;
+	content : '\00a0';
+	margin-top : 20px;
+	/*border-bottom : 2px solid blue;*/
+	background-color : lightgrey;
+	margin-bottom : 20px;
+}
+body {
+	width : 21cm;
+	/*height : 29.7cm;*/
+	margin : 0 auto;
+	box-shadow : 2px  2px 2px 0 #C8C8C8,
+				-2px -2px 2px 0 #C8C8C8;
+	padding : 1cm;
+}
+.header .person {
+	display : inline-block;
+	vertical-align : top;
+}
+.header .person .name {
+	font-family : Calibri;
+	font-size : .75cm;
+}
+.header .person .title {
+	font-family : Calibri;
+	font-size : .5cm;
+	line-height : .5cm;
+}
+.header .contacts {
+	float : right;
+	font-family : Calibri;
+	font-size : 0.4cm;
+	text-align : right;
+}
+.header .contacts .mail {
+	font-size : 0.4cm;
+}
+.header .contacts .mail:after {
+	content : '\2709';
+	margin : 4px;
+}
+.header .contacts .phone:after {
+	content : '\260E';	/*'\1f4f1';*/
+	margin : 4px;
+}
+
+.objectif, .competences {
+	font-family : Calibri;
+	font-size : 0.4cm;
+	margin-bottom : 0.25cm;
+}
+.objectif:before, .competences:before {
+	content : 'Objectif';
+	width : 100%;
+	display : block;
+	font-size : .6cm;
+	font-weight : bold;
+	border-bottom : 2px solid #1c548c;
+	margin-bottom : 5px;
+}
+
+.competences:before {
+	content : 'Compétences'
+}
+.competences span {
+	font-family : Calibri;
+	font-size : 0.5cm;
+	font-weight: bolder;
+}
+.competences ul {
+	list-style-type: none;
+	margin : 0;
+}
+.competences > ul > li:before {
+	content : ' - ';
+}
+.competences ul ul {
+	display : inline-block;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.competences ul li {
+	font-weight: bold;
+}
+.competences ul ul li {
+	font-weight: normal;
+}
+.competences ul ul li {
+	display : inline-block;
+}
+.competences ul ul:before {
+	content : ' : ';
+}
+.competences ul ul li:not(:last-child):after {
+	content : ',\00a0'
+}
+.competences > ul:nth-child(4), .competences > ul:nth-child(4) li {
+	display : inline;
+	font-weight: normal;
+	margin : 0;
+	padding-inline-start: 0;
+}
+.competences > ul:nth-child(4) li:before {
+	content : '';
+}
+.competences > ul:nth-child(4) li:not(:last-child):after {
+	content : ',\00a0';
+}
+
+.experience, .etudes, .autres {
+	font-family : Calibri;
+	font-size : 0.4cm;
+	margin-bottom : 0.25cm;
+}
+.experience:before, .etudes:before, .autres:before {
+	content : attr(data-title);
+	width : 100%;
+	display : block;
+	font-size : .6cm;
+	font-weight : bold;
+	border-bottom : 2px solid #1c548c;
+	margin-bottom : 5px;
+}
+.experience .company, .experience .start, .experience .end, .experience .place {
+	display : inline;
+	font-size : 1.2em;
+	border-bottom : solid 0.5px lightgray;
+}
+/*
+.experience .start:before {
+	content : '\1F3C1';
+	color : green;
+} */
+.experience .end:before {
+	content : '\00a0-\00a0';	/*\1F3C1';*/
+	color : red;
+} 
+.experience .company:before {
+	content : '\00a0-\00a0\1F3E2\FE0E';	/*\1F3ED';*/
+	color : gray;
+}
+.experience .place:before {
+	content : '\00a0-\00a0\00a0\1f4cc\FE0E';	/*\1F4CD'*/
+	font-size : 0.7em;
+	color : gray;
+}
+.experience .activité, .experience .job, .experience .tasks, .experience .prj, .experience .tech, .experience .exp {
+	padding-left : 10px;
+}
+.experience .activité:before, .experience .job:before, .experience .tasks:before, .experience .prj:before, 
+.experience .tech:before, .experience .exp:before {
+	content :attr(data-txt) " : ";
+	font-style: oblique;
+	font-weight: bold;
+}
+</style>
+</head>
+<body>
+	<div class="header">
+		<img src="ci.jpg">
+		<div class="person">
+			<div class="name">Cristian IORDACHE</div>
+			<div class="title">Ingenieur Logiciel</div>
+		</div>
+		<div class="contacts">
+			<div class="mail">ciordache1975@gmail.com</div>
+			<div class="phone">+33(0)768399524</div>
+		</div>
+	</div>
+	<div class="objectif">
+	Avec 21 ans d’expérience en développement java web, dont 3 en Angleterre, je souhaite continuer mon évolution professionnelle en informatique dans les nouvelles technologies et avoir l’opportunité d’élargir mes connaissances en architecture logicielle et management de projet.
+	</div>
+	<div class="competences">
+	<span>Techniques :</span>
+<ul>
+	<li>JAVA
+		<ul><li>Servlet/JSP</li><li>Swing</li><li>SAX</li><li>DOM</li><li>JSTL</li><li>JDBC</li><li>Struts</li><li>Spring (Boot)</li><li>log4j</li><li>JMS</li><li>Hibernate</li><li>JAXB</li><li>etc.</li></ul>
+	</li>
+	<li>Web 
+		<ul><li>HTML</li><li>JavaScript</li><li>CSS</li><li>AJAX</li><li>Angular</li><li>JSF</li><li>jQuery</li><li>VueJS</li>
+		</ul>
+	</li>
+	<li>Serveur d’application
+		<ul><li>Tomcat</li><li>Weblogic</li></ul>
+	</li>
+	<li>Serveur WEB
+		<ul><li>Apache (openssl)</li></ul>
+	</li>
+	<li>Bases de données
+		<ul><li>Sybase</li><li>MySQL</li><li>SQL Server</li><li>Oracle</li><li>PostgreSQL</li></ul>
+	</li>
+	<li>Modélisation
+		<ul><li>UML</li></ul>
+	</li>
+	<li>Autres languages
+		<ul><li>C, C++, C#</li><li>PHP</li><li>Python</li><li>VBA</li><li>ActionScript</li><li>AppleScript</li></ul>
+	</li>
+	<li>Systèmes d’opération
+		<ul><li>Windows</li><li>Linux</li><li>VMS</li><li>Mac OS X</li></ul>
+	</li>
+	<li>Gestion de version
+		<ul><li>Visual SourceSafe</li><li>PVCS Dimensions (Serena)</li><li>Subversion (SVN)</li><li>CVS</li><li>Git (GitHub, GitLab)</li></ul>
+	</li>
+	<li>IDE
+		<ul><li>Eclipse</li><li>IntelliJ</li><li>VSCode</li></ul>
+	</li>
+	<li>Autres outils 
+		<ul><li>Ant</li><li>Maven</li><li>Bamboo</li><li>Jira</li><li>Confluence</li><li>Jenkins</li><li>Docker (linux/windows)</li></ul>
+	</li>
+	</ul>
+	<span>Fonctionnelles : </span><ul><li>Finances (OST, Cours, autres)</li><li>Systèmes d’informations géographiques (SIG)</li><li>Document Management System (DMS)</li><li>BPM (Bonita)</li>
+		<li>Signature électronique</li><li>Budgets</li></ul>
+	</div>
+
+	<div class="experience" data-title="Expérience">
+		<div>
+			<div class="start">oct. 2021</div><div class="end">présent</div><div class="company">iMDEO / Hervé Thermique</div><div class="place">Joué-lès-Tours</div>
+			<div class="activité" data-txt="Activité de l’entreprise">Développement logiciel pour le groupe Hervé</div>
+			<div class="job" data-txt="Poste">Développeur Concepteur</div>
+			<div class="tasks" data-txt="Attributions">Conception, réalisation, maintenance des API et applications web</div>
+			<div class="prj" data-txt="Projets">Budgets Analytiques, Noé, Rapport Activité</div>
+			<div class="tech" data-txt="Technologies">Java, Spring Boot, PostgreSQL, GitLab, Nexus</div>
+		</div>
+
+		<div>
+			<div class="start">sep. 2018</div><div class="end">sep. 2021</div><div class="company">HARMONIE MUTUELLE / SIHM</div><div class="place">Saint-Pierre-des-Corps</div>
+			<div class="activité" data-txt="Activité de l’entreprise">Services mutuelle santé</div>
+			<div class="job" data-txt="Poste">Ingénieur Concepteur</div>
+			<div class="tasks" data-txt="Attributions">Conception, architecture, réalisation, support et intégration api signature, et interfaces ESB / Gateway. Analyse de données</div>
+			<div class="prj" data-txt="Projets">Signature électronique,	ESB Tibco, Tibco Gateway</div>
+			<div class="tech" data-txt="Technologies">Tibco ESB & Gateway, Java, Spring Boot, PostgreSQL, GitHub, Jenkins, Angular, python, pandas, plotly, nginx</div>
+		</div>
+
+		<div>
+			<div class="start">sep. 2017</div><div class="end">aou. 2018</div><div class="company">ASI</div><div class="place">Nantes</div>
+			<div class="activité" data-txt="Activité de l’entreprise">ESN. Création, maintenance et support des solutions informatiques.</div>
+			<div class="job" data-txt="Poste">Expert technique</div>
+			<div class="tasks" data-txt="Attributions">Conception, architecture, réalisation, industrialisation et intégration des applications, ainsi que le support des collaborateurs et leur formation.</div>
+			<div class="prj" data-txt="Projets">TITIBIKE, IKOBOX, Gerap Smartapp</div>
+			<div class="tech" data-txt="Technologies">AWS (SNS, Cognito), Stripe, Spring Boot, Alfresco (GED), PostgreSQL, Git, Jenkins, Docker, Ionic 3, Angular 5</div>
+		</div>
+
+		<div >
+			<div class="start">Janvier 2015</div><div class="end">Aout 2017 </div><div class="company">NETCALL PLC</div><div class="place">Poole, UK</div>
+			<div class="activité" data-txt="Activité de l’entreprise">Création, maintenance et support des solutions pour l’engagement client. </div>
+			<div class="job" data-txt="Poste">Ingénieur logiciel senior</div>
+			<div class="tasks" data-txt="Attributions">Conception, réalisation, industrialisation, maintenance et intégration des applications.</div>
+			<div class="prj" data-txt="Projets">2017 - Customer eXperience Management (CXM)<br />
+Travail sur des application web et mobile pour la gestion de l’expérience client. <br />
+<b>Technologies:</b> Java/J2EE, Spring, Hibernate, Jenkins, Maven, SQL Server, IIS,  JavaScript, AJAX, jQuery, AngularJS, Cordova, Ionic, GWT, SOAP et REST Web Services.<br />
+<b>Expériences acquises :</b> application mobile (Ionic), REST web services, GWT.<br />
+2015 - 2017 - Electronic Document and Records Management System (EDRMS)<br />
+Travail sur une application web pour la gestion des documents électroniques. Une suite de modules pour l’intégration des solutions client. </div>
+			<div class="tech" data-txt="Technologies">Java/J2EE, Spring, Hibernate, Jenkins, Maven, Oracle, Weblogic, Tomcat, JavaScript, AJAX, jQuery, AngularJS, JSF, JMS, Web Services CXF, JAXB, Oracle IFS/CMSDK, Oracle DB.</div>
+			<div class="exp" data-txt="Expériences acquises">intégration, BPM, sécurité (CAS, Spring).</div>
+		</div>
+
+		<div class="pbb">
+			<div class="start">18 avril 2011 </div><div class="end"> 31 decembre 2014 </div><div class="company"> GEO CONCEPT SA</div><div class="place"> Bagneux</div>
+			<div class="activité" data-txt="Activité de l’entreprise">Concepteur et éditeur de technologies d’optimisation géographique. </div>
+			<div class="job" data-txt="Poste">Ingénieur Recherche & Développement</div>
+			<div class="tasks" data-txt="Attributions">Conception / Réalisation / Industrialisation / Maintenance des applications.</div>
+			<div class="prj" data-txt="Projets">
+2011 - 2014
+Geo scheduling suite – optimisation de parcours
+Une application web pour la gestion et optimisation géographique des rendez-vous clients.
+			</div>
+			<div class="tech" data-txt="Technologies">Java/J2EE, Struts, Hibernate, Jenkins, Maven, MySQL, MSSQL et Oracle, Tomcat, Javascript, AJAX, jQuery, JSF.</div>
+			<div class="exp" data-txt="Expériences acquises">industrialisation et interface web dynamique.</div>
+		</div>
+
+		<div>
+			<div class="start">21 décembre 2000</div><div class="end">8 avril 2011</div><div class="company">FININFO SA / SIX Telekurs</div><div class="place">Nanterre</div>
+			<div class="activité" data-txt="Activité de l’entreprise">Fournisseur d’informations financières à valeur ajoutée</div>
+			<div class="job" data-txt="Poste">Ingénieur d’étude senior</div>
+			<div class="tasks" data-txt="Attributions">Conception / Réalisation / Maintenance des applications.</div>
+			<div class="prj" data-txt="Projets"><br />
+2000-2011 - Eventis (Application WEB : www.eventis.sixtelekurs.fr) <br />
+Eventis est une application WEB dont l’accès est sécurisé où l’utilisateur peut consulter les données OST et les cours de la Bourse. <br />
+Technologies utilisées : - Java/J2EE, C et C++, SQL, JDBC, JavaBeans, JSP, servlet, log4j, JavaScript, HTML, CSS, XML <br />
+Expériences acquises : gestion de projet, création des dossiers de mise en production. <br />
+<br />
+2010 - Synthèse Émetteur (fiche d’analyse d’un émetteur) <br />
+Technologies : Spring (Java/J2EE, Spring, Spring MVC, Bamboo, Sybase DB, Maven, taglibs, corba, jdbc, services, etc) <br />
+Intégration fiches Analytics dans TKID <br />
+<br />
+2008 - 2009 - ScreenerOPCVM V2	<br />
+La refonte d’un module WEB. Portage d’une plateforme basée sur struts, vers un framework agile basé sur Spring. <br />
+Gestionnaire des échantillons (portefeuilles clients)	<br />
+Metrix (application de statistiques : Serveur en attente des fichiers xml + serveur de visualisation. 	<br />
+Technologies : Java/J2EE, Spring, Spring MVC, iBatis, Bamboo, ActiveMQ (JMS), XML, MySQL, Sybase DB, etc)	<br />
+<br />
+2006 - 2008 - Refonte PGD 
+La refonte d’un outil de diffusion de données à l’aide du framework Spring. <br />
+Technologies : Java, Spring (injection de dépendances), iBatis, Abator, log4j, Maven <br />
+<br />
+2004 -2005 - Serveur de log, Informatitre <br />
+Technologies : Java/J2EE (log4j – SocketAppender, et autres), JDBC, SQL, JSP, servlet, log4j, JavaScript, HTML, CSS, XML <br />
+<br />
+2003 - Finalim OST <br />
+Création d’un module de diffusion de données OST). Technologies : C, SQL <br />
+<br />
+2002 - 2003 - Journaux (Génération de journaux financiers en format PDF). <br />
+Technologies : - C, C++, SQL, Apple Script et InDesign, Python, java <br />
+			</div>
+			<div class="exp" data-txt="Expériences acquises">création des dossiers d’architecture, création des dossiers de mise en production, gestion ponctuelle d’équipe, mise à jour des modèles de données (avec PowerAMC et AquaDataStudio).</div>
+		</div>
+	</div>
+
+	<div class="etudes" data-title="Etudes">
+		<ul>
+			<li>2017 - Formation interne HTML5, CSS3.</li>
+			<li>2014 - Formation interne CXF, Enunciate.</li>
+			<li>2008 - Formation Spring Framework (par Springsource France)</li>
+			<li>2000 - 2006 - Formations Java, J2EE, UML.</li>
+			<li>1995 - 2000 - Diplôme d’Ingénieur “Systèmes informatiques” à la faculté d’Electronique et Télécommunications de l’Université Polytechnique de Bucarest.</li>
+		</ul>
+	</div>
+	<div class="autres" data-title="Autres">
+		<ul>
+			<li>De langue maternelle roumaine, je parle le français couramment.</li>
+			<li>Langues étrangères : anglais (courant), italien (notions+), allemand (notions)</li>
+			<li>Intérêts : 3 enfants, électronique, course à pied, menuiserie, casse-tête.</li>
+		</ul>
+	</div>
+</body>
+</html>
